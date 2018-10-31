@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,8 +44,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\ArrayExtensions.cs" />
+    <Compile Include="IoC\IoCModule.cs" />
+    <Compile Include="Model\FileReadResult.cs" />
     <Compile Include="Model\Matrix.cs" />
+    <Compile Include="Model\MatrixOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Impl\FileReader.cs" />
+    <Compile Include="Service\Impl\FolderProvider.cs" />
+    <Compile Include="Service\IFolderProvider.cs" />
+    <Compile Include="Service\Impl\IFileReader.cs" />
+    <Compile Include="Service\Impl\IMatrixSerializer.cs" />
+    <Compile Include="Service\Impl\MatrixSerializer.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Autofac;
+using KMT.ReviewTask1.Application.IoC;
 
 namespace KMT.ReviewTask1.ConsoleApp
 {
@@ -10,6 +7,15 @@ namespace KMT.ReviewTask1.ConsoleApp
     {
         static void Main(string[] args)
         {
+            var container = BuildContainer();
+
+        }
+
+        private static ILifetimeScope BuildContainer()
+        {
+            var containerBuilder = new ContainerBuilder();
+            containerBuilder.RegisterModule<IoCModule>();
+            return containerBuilder.Build();
         }
     }
 }

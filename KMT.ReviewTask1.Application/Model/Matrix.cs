@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text;
-using KMT.ReviewTask1.Application.Extensions;
 
 namespace KMT.ReviewTask1.Application.Model
 {
