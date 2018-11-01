@@ -67,6 +67,7 @@
     <Compile Include="MatrixTests\MatrixOtherTests.cs" />
     <Compile Include="MatrixTests\MatrixTrasnponationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\FileReaderTests.cs" />
     <Compile Include="Services\MatrixSerializerTests.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +78,16 @@
       <Project>{0F511C64-0A1F-496A-BB92-51A97EFFA46A}</Project>
       <Name>KMT.ReviewTask1.Application</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addition_example1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subtraction_example1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

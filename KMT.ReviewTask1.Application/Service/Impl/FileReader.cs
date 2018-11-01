@@ -18,7 +18,7 @@ namespace KMT.ReviewTask1.Application.Service.Impl
         {
             var fileContent = File.ReadAllText(filename);
 
-            var parts = fileContent.Split(new []{"\r\n"}, StringSplitOptions.RemoveEmptyEntries);
+            var parts = fileContent.Split(new []{"\r\n\r\n"}, StringSplitOptions.RemoveEmptyEntries);
             if(!Enum.TryParse(parts.First(), out MatrixOperation operation))
                 throw new ArgumentException($"Нераспознаная операция '{parts.First()}'");
 
