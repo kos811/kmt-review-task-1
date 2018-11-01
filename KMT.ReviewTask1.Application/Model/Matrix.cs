@@ -134,5 +134,21 @@ namespace KMT.ReviewTask1.Application.Model
 
             return sb.ToString();
         }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is Matrix asMatrix))
+                return false;
+
+            if (asMatrix.ColCount != ColCount || asMatrix.RowCount != RowCount)
+                return false;
+
+            for (var i = 0; i < RowCount; i++)
+                for (var j = 0; j < ColCount; j++)
+                    if (asMatrix[i, j] != this[i, j])
+                        return false;
+
+            return true;
+        }
     }
 }

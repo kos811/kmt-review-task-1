@@ -52,8 +52,8 @@
     <Compile Include="Service\Impl\FileReader.cs" />
     <Compile Include="Service\Impl\FolderProvider.cs" />
     <Compile Include="Service\IFolderProvider.cs" />
-    <Compile Include="Service\Impl\IFileReader.cs" />
-    <Compile Include="Service\Impl\IMatrixSerializer.cs" />
+    <Compile Include="Service\IFileReader.cs" />
+    <Compile Include="Service\IMatrixSerializer.cs" />
     <Compile Include="Service\Impl\MatrixSerializer.cs" />
   </ItemGroup>
   <ItemGroup>
