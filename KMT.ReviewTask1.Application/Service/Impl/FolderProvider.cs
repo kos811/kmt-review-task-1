@@ -11,15 +11,16 @@ namespace KMT.ReviewTask1.Application.Service.Impl
             if (!Directory.Exists(folderPath))
                 Directory.CreateDirectory(folderPath);
 
-            var filenames = Directory.GetFiles(folderPath).Select(Path.GetFileNameWithoutExtension).ToList();
-            var result = filenames.Where(x => !filenames.Contains(GetResultFileName(x))).ToList();
+            var filesInFolder = Directory.GetFiles(folderPath);
+            var result = filesInFolder.Where(x => !Path.GetFileNameWithoutExtension(x).ToLower().EndsWith("_result"))
+                .ToList();
             return result;
         }
 
         public string GetResultFileName(string srcFilename)
         {
             var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(srcFilename);
-            return srcFilename.Replace(srcFilename,fileNameWithoutExtension + "_result");
+            return srcFilename.Replace(fileNameWithoutExtension, fileNameWithoutExtension + "_result");
         }
     }
 }

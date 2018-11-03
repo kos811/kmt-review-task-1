@@ -22,16 +22,12 @@ namespace KMT.ReviewTask1.Tests.MatrixTests
             //assert
             Assert.AreEqual(3, c.RowCount);
             Assert.AreEqual(3, c.ColCount);
-            Assert.AreEqual(1, c[0, 0]);
-            Assert.AreEqual(2, c[1, 0]);
-            Assert.AreEqual(3, c[2, 0]);
-            Assert.AreEqual(4, c[0, 1]);
-            Assert.AreEqual(5, c[1, 1]);
-            Assert.AreEqual(6, c[2, 1]);
-            Assert.AreEqual(7, c[0, 2]);
-            Assert.AreEqual(8, c[1, 2]);
-            Assert.AreEqual(9, c[2, 2]);
-
+            Assert.AreEqual(new Matrix(new double[,]
+            {
+                {1, 4, 7},
+                {2, 5, 8},
+                {3, 6, 9}
+            }), c);
 
             Console.WriteLine(a);
             Console.WriteLine("T()");

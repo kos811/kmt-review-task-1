@@ -5,7 +5,7 @@ namespace KMT.ReviewTask1.Application.Model
 {
     public class Matrix
     {
-        private double[,] _matrix;
+        private readonly double[,] _matrix;
 
         public int RowCount => _matrix.GetLength(0);
         public int ColCount => _matrix.GetLength(1);
@@ -114,8 +114,6 @@ namespace KMT.ReviewTask1.Application.Model
             return result;
         }
 
-        /// <summary>Returns a string that represents the current object.</summary>
-        /// <returns>A string that represents the current object.</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
@@ -147,6 +145,16 @@ namespace KMT.ReviewTask1.Application.Model
                         return false;
 
             return true;
+        }
+
+        protected bool Equals(Matrix other)
+        {
+            return Equals(_matrix, other._matrix);
+        }
+
+        public override int GetHashCode()
+        {
+            return (_matrix != null ? _matrix.GetHashCode() : 0);
         }
     }
 }

@@ -49,6 +49,8 @@
     <Compile Include="Model\Matrix.cs" />
     <Compile Include="Model\MatrixOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Impl\ConsoleLogger.cs" />
+    <Compile Include="Service\ILogger.cs" />
     <Compile Include="Service\Impl\FileReader.cs" />
     <Compile Include="Service\Impl\FolderProvider.cs" />
     <Compile Include="Service\IFolderProvider.cs" />
@@ -56,6 +58,7 @@
     <Compile Include="Service\IMatrixSerializer.cs" />
     <Compile Include="Service\IMatrixOperationResolver.cs" />
     <Compile Include="Service\IMatrixProcessor.cs" />
+    <Compile Include="Service\IProcessingTask.cs" />
     <Compile Include="Service\Impl\MatrixOperationResolver.cs" />
     <Compile Include="Service\Impl\MatrixProcessor.cs" />
     <Compile Include="Service\Impl\MatrixSerializer.cs" />

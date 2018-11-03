@@ -11,7 +11,10 @@ namespace KMT.ReviewTask1.Application.IoC
             builder.RegisterType<FolderProvider>().As<IFolderProvider>();
             builder.RegisterType<MatrixSerializer>().As<IMatrixSerializer>();
             builder.RegisterType<FileReader>().As<IFileReader>();
-            
+            builder.RegisterType<ConsoleLogger>().As<ILogger>();
+            builder.RegisterType<MatrixOperationResolver>().As<IMatrixOperationResolver>();
+            builder.RegisterType<MatrixProcessor>().As<IMatrixProcessor>();
+            builder.RegisterType<ProcessingTask>().As<IProcessingTask>();
         }
     }
 }

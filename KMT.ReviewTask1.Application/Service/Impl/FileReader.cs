@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,18 +20,25 @@ namespace KMT.ReviewTask1.Application.Service.Impl
 
         public FileReadResult Read(string filename)
         {
-            var fileContent = File.ReadAllText(filename);
-
-            var parts = fileContent.Split(new[] { MATRIX_DELIMITER }, StringSplitOptions.RemoveEmptyEntries);
-            if (!Enum.TryParse(parts.First(), out MatrixOperation operation))
-                throw new ArgumentException($"Нераспознаная операция '{parts.First()}'");
-
-            var result = new FileReadResult
+            try
             {
-                Operation = operation,
-                Matrices = parts.Skip(1).Select(x => _matrixSerializer.Deserialize(x)).ToList()
-            };
-            return result;
+                var fileContent = File.ReadAllText(filename);
+
+                var parts = fileContent.Split(new[] {MATRIX_DELIMITER}, StringSplitOptions.RemoveEmptyEntries);
+                if (!Enum.TryParse(parts.First(), out MatrixOperation operation))
+                    throw new ArgumentException($"Нераспознаная операция '{parts.First()}'");
+
+                var result = new FileReadResult
+                {
+                    Operation = operation,
+                    Matrices = parts.Skip(1).Select(x => _matrixSerializer.Deserialize(x)).ToList()
+                };
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new FileLoadException($"Ошибка при чтении файла [ {filename} ].", filename, ex);
+            }
         }
 
         public void Write(string path, ICollection<Matrix> results)
