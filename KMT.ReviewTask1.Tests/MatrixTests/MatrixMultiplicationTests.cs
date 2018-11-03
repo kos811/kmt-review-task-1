@@ -35,10 +35,11 @@ namespace KMT.ReviewTask1.Tests.MatrixTests
 
             Assert.AreEqual(2, c.RowCount);
             Assert.AreEqual(2, c.ColCount);
-            Assert.AreEqual(2, c[0, 0]);
-            Assert.AreEqual(2, c[1, 0]);
-            Assert.AreEqual(3, c[0, 1]);
-            Assert.AreEqual(3, c[1, 1]);
+            Assert.AreEqual(new Matrix(new double[,]
+            {
+                {2, 3},
+                {2, 3}
+            }), c);
         }
 
         [Test]
@@ -47,9 +48,44 @@ namespace KMT.ReviewTask1.Tests.MatrixTests
             //arrange
             var a = new Matrix(new double[,]
             {
+                {2, 5, 6, 99},
+                {8, 55, 6, 9},
+                {7, 8, 5, 56}
+            });
+            var b = new Matrix(new double[,]
+            {
+                {59, 48, 65},
+                {59, 141, 56},
+                {5, 5, 6},
+            });
+            //act
+            Exception catched = null;
+            try
+            {
+                var c = a * b;
+                Console.WriteLine(c);
+            }
+            catch (Exception ex)
+            {
+                catched = ex;
+            }
+
+            //assert
+            Assert.NotNull(catched);
+            Assert.IsInstanceOf<ArgumentException>(catched);
+            Assert.AreEqual("Количество столбцов в матрице А (4) не соответствует количеству строк в матрице Б (3)",
+                catched.Message);
+        }
+
+        [Test]
+        public void Multiplication2_Test()
+        {
+            //arrange
+            var a = new Matrix(new double[,]
+            {
                 {1, 2, 1},
                 {1, 2, 1},
-                {0, 1, 2}
+                {0, 1, 1}
             });
             var b = new Matrix(new double[,]
             {
@@ -58,24 +94,27 @@ namespace KMT.ReviewTask1.Tests.MatrixTests
                 {1, 1}
             });
             //act
-            Exception catched = null;
-            try
-            {
-                var c = a * b;
-            }
-            catch (Exception ex)
-            {
-                catched = ex;
-            }
+            var c = a * b;
             //assert
-            Assert.NotNull(catched);
-            Assert.IsInstanceOf<ArgumentException>(catched);
-            Assert.AreEqual("Количество строк в матрице А (3) не соответствует количеству столбцов в матрице Б (2)", catched.Message);
+            Console.WriteLine(a);
+            Console.WriteLine("*");
+            Console.WriteLine(b);
+            Console.WriteLine("=");
+            Console.WriteLine(c);
+
+            Assert.AreEqual(3, c.RowCount);
+            Assert.AreEqual(2, c.ColCount);
+            Assert.AreEqual(new Matrix(new double[,]
+            {
+                {2, 3},
+                {2, 3},
+                {1, 2}
+            }), c);
         }
 
 
         [Test]
-        public void Multiplication2_Test()
+        public void Multiplication3_Test()
         {
             //arrange
             var a = new Matrix(new double[,]
@@ -101,15 +140,12 @@ namespace KMT.ReviewTask1.Tests.MatrixTests
 
             Assert.AreEqual(3, c.RowCount);
             Assert.AreEqual(3, c.ColCount);
-            Assert.AreEqual(1, c[0, 0]);
-            Assert.AreEqual(0, c[1, 0]);
-            Assert.AreEqual(1, c[2, 0]);
-            Assert.AreEqual(2, c[0, 1]);
-            Assert.AreEqual(1, c[1, 1]);
-            Assert.AreEqual(3, c[2, 1]);
-            Assert.AreEqual(1, c[0, 2]);
-            Assert.AreEqual(2, c[1, 2]);
-            Assert.AreEqual(3, c[2, 2]);
+            Assert.AreEqual(new Matrix(new double[,]
+            {
+                {1, 2, 1},
+                {0, 1, 2},
+                {1, 3, 3}
+            }), c);
         }
     }
 }

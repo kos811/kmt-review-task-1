@@ -71,13 +71,11 @@ namespace KMT.ReviewTask1.Application.Model
 
         public static Matrix operator *(Matrix a, Matrix b)
         {
-            if (a.RowCount != b.ColCount)
+            if (a.ColCount != b.RowCount)
                 throw new ArgumentException(
-                    $"Количество строк в матрице А ({a.RowCount}) не соответствует количеству столбцов в матрице Б ({b.ColCount})");
+                    $"Количество столбцов в матрице А ({a.ColCount}) не соответствует количеству строк в матрице Б ({b.RowCount})");
 
-            var targetSize = a.RowCount;
-
-            var result = new Matrix(targetSize, targetSize);
+            var result = new Matrix(a.RowCount, b.ColCount);
             for (var i = 0; i < a.RowCount; i++)
             {
                 for (var j = 0; j < b.ColCount; j++)

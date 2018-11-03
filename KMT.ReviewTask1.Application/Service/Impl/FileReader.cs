@@ -21,14 +21,14 @@ namespace KMT.ReviewTask1.Application.Service.Impl
         {
             var fileContent = File.ReadAllText(filename);
 
-            var parts = fileContent.Split(new []{ MATRIX_DELIMITER }, StringSplitOptions.RemoveEmptyEntries);
-            if(!Enum.TryParse(parts.First(), out MatrixOperation operation))
+            var parts = fileContent.Split(new[] { MATRIX_DELIMITER }, StringSplitOptions.RemoveEmptyEntries);
+            if (!Enum.TryParse(parts.First(), out MatrixOperation operation))
                 throw new ArgumentException($"Нераспознаная операция '{parts.First()}'");
 
             var result = new FileReadResult
             {
                 Operation = operation,
-                Matrices =  parts.Skip(1).Select(x=> _matrixSerializer.Deserialize(x)).ToList()
+                Matrices = parts.Skip(1).Select(x => _matrixSerializer.Deserialize(x)).ToList()
             };
             return result;
         }
