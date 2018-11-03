@@ -20,7 +20,14 @@ namespace KMT.ReviewTask1.Application.Service.Impl
         {
             var operation = fileContent.Operation;
             if (operation == MatrixOperation.transpose)
-                return fileContent.Matrices.Select(x => x.Transpose()).ToList();
+                return fileContent.Matrices.Select(x =>
+                {
+                    var t = x.Transpose();
+                    _logger.Add("\r\n"+x.ToString());
+                    _logger.Add("T()");
+                    _logger.Add("\r\n" + t.ToString());
+                    return t;
+                }).ToList();
 
             var func = _operationResolver.Resolve(operation);
 

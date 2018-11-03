@@ -11,6 +11,9 @@ namespace KMT.ReviewTask1.ConsoleApp
             var container = BuildContainer();
             var task = container.Resolve<IProcessingTask>();
             task.Do();
+
+            System.Console.WriteLine("Work finished, press any key to exit...");
+            System.Console.ReadKey();
         }
 
         private static ILifetimeScope BuildContainer()
