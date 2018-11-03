@@ -54,7 +54,12 @@
     <Compile Include="Service\IFolderProvider.cs" />
     <Compile Include="Service\IFileReader.cs" />
     <Compile Include="Service\IMatrixSerializer.cs" />
+    <Compile Include="Service\IMatrixOperationResolver.cs" />
+    <Compile Include="Service\IMatrixProcessor.cs" />
+    <Compile Include="Service\Impl\MatrixOperationResolver.cs" />
+    <Compile Include="Service\Impl\MatrixProcessor.cs" />
     <Compile Include="Service\Impl\MatrixSerializer.cs" />
+    <Compile Include="Service\Impl\ProcessingTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
