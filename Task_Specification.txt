@@ -1,4 +1,44 @@
-Расшифровывать с помощью: https://www.online-toolz.com/tools/text-encryption-decryption.php
+Написать консольное приложение, выполняющее операции над матрицами: 
+	1. сложение
+	2. вычитание
+	3. умножение
+	4. транспонирование
+На вход приложение получает имя директории с текстовыми файлами. 
+Файлов может быть много.
 
+Файл имеет следующий формат:
+1я строка - слово означающее, что нужно сделать (multiply, add, subtract, transpose).
+Затем пустая строка. 
+Далее матрицы(а), над которыминужно провести операцию. 
+Числа в строке матрицы разделены пробелами, матрицы друг от друго отделены пустой строкой.
+Пример содержимого файла:
+—---------------------------------—
+multiply
 
-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
+2 5 6 99
+8 55 6 9
+7 8 5 56
+
+59 48 65
+59 141 56
+5 5 6
+—---------------------------------—
+Врезультате умножения, сложения, вычитания должна получиться 1 матрица. 
+Врезультате транспонирования - столько же сколько и во входном файле.
+Врезультате работы программа должна сохранить в исходную папку файлы с ответами, 
+	по одному на каждый входной файл (<имяиходногофайла>_result.txt).
+
+Программа должна отображать текущий прогресс.
+
+----------------------------------
+
+Примечание по предыдущему кандидату:
+
+Собственно, хотелось увидеть архитектуру. А это просто работающее приложение, да ещё и несоответвующее спецификации.
+
+В конструкторе выполняется операция - это ужасно
+Нет разбиения на слои: работа с файлами, работа с матрицей и т.д.
+Было бы лучше серелиазовать матрицу в строку, а не просто функцию 
+Обрабатывать нужно директорию, а не список файлов
+В файле может быть не две матрицы, а более
+Сохранение результатов происходит не в туже папку
